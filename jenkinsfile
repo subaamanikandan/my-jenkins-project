@@ -6,10 +6,7 @@ pipeline {
             steps {
  checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/subaamanikandan/my-jenkins-project.git']])           
             }
-       stage('Email Notification'){ 
-mail bcc: '', body: '''hi welcome to gmail alerts
-thanks
-subaa''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'subaamanikandan@gmail.com'
+       emailext body: 'Output send out from jenkins', subject: 'Output Email', to: 'subaamanikandan@gmail.com'
 }
     }
 }
