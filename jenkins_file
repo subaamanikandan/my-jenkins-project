@@ -1,0 +1,16 @@
+    pipeline  {
+
+    agent any
+ 
+stages {
+    stage ('Build') {
+    steps {
+      echo  "Building the project"
+}
+}
+     post{
+       success{
+           emailext body: 'Email send out from the jenkins', subject: 'Output Email', to: 'subaamanikandan@gmail.com'          
+        }
+      }
+}
